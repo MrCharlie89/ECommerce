@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B263B863-5293-48AE-BB21-E612F8848600}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ECommerce</RootNamespace>
-    <AssemblyName>ECommerce</AssemblyName>
+    <RootNamespace>Syntra.VDOAP.CProef.ECommerce</RootNamespace>
+    <AssemblyName>Syntra.VDOAP.CProef.ECommerce</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,8 +34,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -54,20 +63,82 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Compile Include="SupplierForm.xaml.cs">
+      <DependentUpon>SupplierForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierOverview.xaml.cs">
+      <DependentUpon>SupplierOverview.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CategoryForm.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CategoryOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LanguageForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LanguageOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="CategoryForm.xaml.cs">
+      <DependentUpon>CategoryForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CategoryOverview.xaml.cs">
+      <DependentUpon>CategoryOverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LanguageForm.xaml.cs">
+      <DependentUpon>LanguageForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LanguageOverview.xaml.cs">
+      <DependentUpon>LanguageOverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProductForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProductOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SupplierForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SupplierOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductForm.xaml.cs">
+      <DependentUpon>ProductForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductOverview.xaml.cs">
+      <DependentUpon>ProductOverview.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -85,6 +156,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,6 +164,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\clapperboard.png" />
+    <Resource Include="Resources\Icons\diskette.png" />
+    <Resource Include="Resources\Icons\film.png" />
+    <Resource Include="Resources\Icons\hide.png" />
+    <Resource Include="Resources\Icons\hollywood-star.png" />
+    <Resource Include="Resources\Icons\info.png" />
+    <Resource Include="Resources\Icons\movie-film.png" />
+    <Resource Include="Resources\Icons\picture %281%29.png" />
+    <Resource Include="Resources\Icons\picture.png" />
+    <Resource Include="Resources\Icons\plus-button.png" />
+    <Resource Include="Resources\Icons\redo.png" />
+    <Resource Include="Resources\Icons\refresh-arrow.png" />
+    <Resource Include="Resources\Icons\sign-out-option.png" />
+    <Resource Include="Resources\Icons\undo.png" />
+    <Resource Include="Resources\Icons\user.png" />
+    <Resource Include="Resources\Icons\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\homepage_cookitup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ECommerce.LIB\ECommerce.LIB.csproj">
+      <Project>{D624D65C-03E9-49CB-946C-C22318981821}</Project>
+      <Name>ECommerce.LIB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

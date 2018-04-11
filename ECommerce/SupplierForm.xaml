@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Syntra.VDOAP.CProef.ECommerce.SupplierForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Syntra.VDOAP.CProef.ECommerce"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <Grid Grid.IsSharedSizeScope="True" Margin="0,0,0,0" >
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Background="White" HorizontalAlignment="Center">
+                <Label x:Name="Title" Content=" Add new supplier" HorizontalAlignment="Center"/>
+
+                <WrapPanel Background="White" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <Grid HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" HorizontalAlignment="Stretch">
+                            <Label x:Name="SupplierName" Content="Supplier name: " Height="30" HorizontalContentAlignment="Right" Margin="0,5,0,5"></Label>
+                            <Label x:Name="SupplierAdress" Content="Streetname and number: " Height="30" HorizontalContentAlignment="Right" Margin="0,5,0,5"></Label>
+                            <Label x:Name="SupplierCity" Content="City: " Height="30" HorizontalContentAlignment="Right" Margin="0,5,0,5"></Label>
+                            <Label x:Name="SupplierPostalCode" Content="Postalcode: " Height="30" HorizontalContentAlignment="Right" Margin="0,5,0,5"></Label>
+                            <Label x:Name="SupplierTelephone" Content="Telephone number: " Height="30" HorizontalContentAlignment="Right" Margin="0,5,0,5"></Label>
+                            <Label x:Name="SupplierWebsite" Content="Website: " Height="30" HorizontalContentAlignment="Right" Margin="0,5,0,5"></Label>
+                            <Label x:Name="SupplierEmail" Content="Emailadress: " Height="30" HorizontalContentAlignment="Right" Margin="0,5,0,5"></Label>
+                            <Label x:Name="SupplierVAT" Content="VAT number: " Height="30" HorizontalContentAlignment="Right" Margin="0,5,0,5"></Label>
+                            <Label x:Name="SupplierContactPerson" Content="Name Contact: " Height="30" HorizontalContentAlignment="Right" Margin="0,5,0,5"></Label>
+                            <Label x:Name="SupplierContactPersonTelephone" Content="Contact telephone number: " Height="30" HorizontalContentAlignment="Right" Margin="0,5,0,5"></Label>
+                            <Label x:Name="SupplierContactPersonEmailAdress" Content="Contact emailadress: " Height="30" HorizontalContentAlignment="Right" Margin="0,5,0,5"></Label>
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBox x:Name="txtSupplierName" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.Suppliername}"></TextBox>
+                            <TextBox x:Name="txtSupplierStreetname" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.StreetnameAndNumber}"></TextBox>
+                            <TextBox x:Name="txtCity" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.City}"></TextBox>
+                            <TextBox x:Name="txtPostalCode" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model. Postalcode}"></TextBox>
+                            <TextBox x:Name="txtTelephonenumber" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.Phonenumber}"></TextBox>
+                            <TextBox x:Name="txtWebsite" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.WebsiteSupplier}"></TextBox>
+                            <TextBox x:Name="txtEmailadress" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.Emailadress}"></TextBox>
+                            <TextBox x:Name="txtVAT" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.VATNumber}"></TextBox>
+                            <TextBox x:Name="txtNameContact" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.NameContact}"></TextBox>
+                            <TextBox x:Name="txtTelephoneContact" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.ContactTelephoneNumber}"></TextBox>
+                            <TextBox x:Name="txtContactEmail" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.EmailadressContact}"></TextBox>
+                        </StackPanel>
+
+
+
+                    </Grid>
+
+                </WrapPanel>
+
+            </StackPanel>
+
+        </ScrollViewer>
+    </Grid>
+</UserControl>
