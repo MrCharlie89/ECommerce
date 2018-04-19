@@ -54,6 +54,7 @@
             </RibbonTab>
         </Ribbon>
         <ContentControl x:Name="mainContent" Margin="10,150,10,10"></ContentControl>
+        <ContentControl x:Name="testContent" Margin="10,150,10,10"></ContentControl>
     </Grid>
     </RibbonWindow>
   

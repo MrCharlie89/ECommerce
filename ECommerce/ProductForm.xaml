@@ -35,7 +35,7 @@
 
                         <StackPanel Grid.Column="2" HorizontalAlignment="Stretch">
                             <TextBox x:Name="txtProductName" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.ProductName}" ></TextBox>
-                            <!--<ComboBox x:Name="combProductCategory" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" ></ComboBox>-->
+                            <ComboBox x:Name="combProductCategory" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" ></ComboBox>
                             <TextBox x:Name="txtProductDescription" HorizontalAlignment="Right" Width="250" Height="90" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,5,0,5" Text="{Binding Path=Model.Description}"></TextBox>
                             <TextBox x:Name="txtProductMaterial" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.Material}"></TextBox>
                             <TextBox x:Name="txtProductColor" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.Color}"></TextBox>

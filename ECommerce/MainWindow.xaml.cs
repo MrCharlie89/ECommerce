@@ -75,7 +75,8 @@ namespace Syntra.VDOAP.CProef.ECommerce
             {
                 SetTitleByRibbonButton(sender);
 
-                mainContent.Content = new ProductOverview();
+                testContent.Content = new ProductOverview();
+               //  mainContent.Visibility = Visibility.Collapsed;
             }
             catch (Exception)
             {
@@ -91,6 +92,8 @@ namespace Syntra.VDOAP.CProef.ECommerce
             {
                 SetTitleByRibbonButton(sender);
                 mainContent.Content = new ProductForm();
+               // testContent.Visibility = Visibility.Collapsed;
+               //  mainContent.Visibility = Visibility.Visible;
             }
             catch (Exception)
             {
