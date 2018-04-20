@@ -73,9 +73,9 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.DATA
 
             //
             modelBuilder.Entity<Product>()
-                .HasRequired<ProductCategory>(p => p.ProductCategory)
+                .HasOptional<ProductCategory>(p => p.ProductCategory)
                 .WithMany(pc => pc.Products)
-                .HasForeignKey<int>(p => p.Category_ID);
+                .HasForeignKey<int?>(p => p.Category_ID);
 
         }
 

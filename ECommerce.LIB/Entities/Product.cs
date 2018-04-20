@@ -18,8 +18,9 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
 
+        // toegevoegd door nick, int?
         [Column("category_ID")]
-        public int Category_ID { get; set; }
+        public int? Category_ID { get; set; }
 
         [Column("product_code")]
         [StringLength(50, ErrorMessage = "The product code can maximum have 50 characters.")]
@@ -46,7 +47,7 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.Entities
 
 
 
-        public ProductCategory ProductCategory { get; set; }
+        public virtual ProductCategory ProductCategory { get; set; }
 
         public virtual ICollection<Localize_Product> Localize_Product { get; set; }
                

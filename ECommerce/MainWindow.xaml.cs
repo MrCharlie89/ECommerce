@@ -75,7 +75,12 @@ namespace Syntra.VDOAP.CProef.ECommerce
             {
                 SetTitleByRibbonButton(sender);
 
-                testContent.Content = new ProductOverview();
+                var overview = new ProductOverview();
+                //TODO: place here all the calls events of the overview
+
+
+                mainContent.Content = overview;
+
                //  mainContent.Visibility = Visibility.Collapsed;
             }
             catch (Exception)
@@ -91,7 +96,11 @@ namespace Syntra.VDOAP.CProef.ECommerce
             try
             {
                 SetTitleByRibbonButton(sender);
-                mainContent.Content = new ProductForm();
+
+                // toegevoegd door nick
+                var form = new ProductForm();
+                form.OnModelSaved += OnProductSaved;
+                mainContent.Content = form;
                // testContent.Visibility = Visibility.Collapsed;
                //  mainContent.Visibility = Visibility.Visible;
             }
@@ -100,6 +109,11 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
                 throw;
             }
+        }
+
+        private void OnProductSaved(LIB.Entities.Product Model)
+        {
+            btnProductOverview_Click(btnProductOverview, null);
         }
 
         private void btnSupplierOverview_Click(object sender, RoutedEventArgs e)

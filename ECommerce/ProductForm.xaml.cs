@@ -28,14 +28,16 @@ namespace Syntra.VDOAP.CProef.ECommerce
         public event ModelSavedEventHandler OnModelSaved;
 
         public Product Model { get; set; }
+        public Localize_Product Localize_Model { get; set; }
 
-        public ProductForm() : this(new Product()) { }
+        public ProductForm() : this(new Product(), new Localize_Product()) { }
 
-        public ProductForm(Product model)
+        public ProductForm(Product model, Localize_Product localize_model)
         {
             InitializeComponent();
 
             this.Model = model;
+            this.Localize_Model = localize_model;
 
             grdProductForm.DataContext = this;
             setTitle();
@@ -55,7 +57,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
             Verifying();
             if (validating == true)
             {
-                if (BL_Product.Save(Model))
+                if (BL_Product.Save(Model,Localize_Model))
                 {
                     if (OnModelSaved != null)
                     {

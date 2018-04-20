@@ -11,18 +11,18 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
     public static class BL_Product
     {
 
-        public static bool Save(Product Model)
+        public static bool Save(Product Model,Localize_Product Localize_Model)
         {
             try
             {
 
                 if (Model.IsNew())
                 {
-                    Create(Model);
+                    Create(Model,Localize_Model);
                 }
                 else
                 {
-                    Update(Model);
+                    Update(Model,Localize_Model);
                 }
             }
             catch (Exception)
@@ -32,25 +32,25 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
             }
            return true;
         }
-        public static void Create(Product model)
+        public static void Create(Product model,Localize_Product localize_model)
         {
 
             try
             {
-                DAL_Product.Create(model);
+                DAL_Product.Create(model,localize_model);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
             }
         }
 
-        public static void Update(Product model)
+        public static void Update(Product model,Localize_Product localize_model)
         {
             try
             {
-                DAL_Product.Update(model);
+                DAL_Product.Update(model,localize_model);
             }
             catch (Exception)
             {

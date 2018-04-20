@@ -1,4 +1,5 @@
 ﻿using ECommerce;
+using Syntra.VDOAP.CProef.ECommerce.LIB.DATA;
 using Syntra.VDOAP.CProef.ECommerce.LIB.Extensions;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,9 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
         public LoginWindow()
         {
+
+            AppDBContext ctx = AppDBContext.Instance(System.Configuration.ConfigurationManager.ConnectionStrings["ECommerce"].ConnectionString);
+
             InitializeComponent();
 
             ShowPassword = false;

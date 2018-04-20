@@ -32,7 +32,7 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.Entities
 
         public override bool IsNew()
         {
-            throw new NotImplementedException();
+            return this.Id <= 0;
         }
     }
 }

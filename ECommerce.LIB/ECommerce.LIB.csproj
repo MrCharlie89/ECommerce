@@ -67,6 +67,14 @@
     <Compile Include="Migrations\201804102202172_First Database.Designer.cs">
       <DependentUpon>201804102202172_First Database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804201720553_nueensgoedgedaan_dankjenick.cs" />
+    <Compile Include="Migrations\201804201720553_nueensgoedgedaan_dankjenick.Designer.cs">
+      <DependentUpon>201804201720553_nueensgoedgedaan_dankjenick.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804201847097_localizemodel.cs" />
+    <Compile Include="Migrations\201804201847097_localizemodel.Designer.cs">
+      <DependentUpon>201804201847097_localizemodel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,6 +85,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201804102202172_First Database.resx">
       <DependentUpon>201804102202172_First Database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804201720553_nueensgoedgedaan_dankjenick.resx">
+      <DependentUpon>201804201720553_nueensgoedgedaan_dankjenick.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804201847097_localizemodel.resx">
+      <DependentUpon>201804201847097_localizemodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

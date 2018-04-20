@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Syntra.VDOAP.CProef.ECommerce.LIB.Entities;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,15 @@ namespace Syntra.VDOAP.CProef.ECommerce
     /// </summary>
     public partial class ProductOverview : UserControl
     {
+        private ObservableCollection<Product> datasource;
+      
+
+
         public ProductOverview()
         {
             InitializeComponent();
+
+            //BindData();
         }
 
         private void dgrdProducts_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)

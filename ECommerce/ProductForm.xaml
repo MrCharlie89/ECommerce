@@ -34,11 +34,11 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="2" HorizontalAlignment="Stretch">
-                            <TextBox x:Name="txtProductName" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.ProductName}" ></TextBox>
+                            <TextBox x:Name="txtProductName" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Localize_Model.ProductName}" ></TextBox>
                             <ComboBox x:Name="combProductCategory" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" ></ComboBox>
-                            <TextBox x:Name="txtProductDescription" HorizontalAlignment="Right" Width="250" Height="90" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,5,0,5" Text="{Binding Path=Model.Description}"></TextBox>
-                            <TextBox x:Name="txtProductMaterial" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.Material}"></TextBox>
-                            <TextBox x:Name="txtProductColor" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.Color}"></TextBox>
+                            <TextBox x:Name="txtProductDescription" HorizontalAlignment="Right" Width="250" Height="90" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,5,0,5" Text="{Binding Path=Localize_Model.Description}"></TextBox>
+                            <TextBox x:Name="txtProductMaterial" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Localize_Model.Material}"></TextBox>
+                            <TextBox x:Name="txtProductColor" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Localize_Model.Color}"></TextBox>
                             <TextBox x:Name="txtProductPrice" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.UnitPrice}"></TextBox>
                             <TextBox x:Name="txtProductStock" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.CurrentStock}"></TextBox>
                             <TextBox x:Name="txtProductBarcode" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.ProductCode}"></TextBox>

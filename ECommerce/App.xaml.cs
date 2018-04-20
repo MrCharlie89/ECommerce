@@ -15,8 +15,6 @@ namespace Syntra.VDOAP.CProef.ECommerce
     public partial class App : Application
     {
 
-        AppDBContext ctx = AppDBContext.Instance(System.Configuration.ConfigurationManager.ConnectionStrings["ECommerce"].ConnectionString);
-
     }
 
 }
