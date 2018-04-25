@@ -50,7 +50,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\BL_Language.cs" />
     <Compile Include="BL\BL_Product.cs" />
+    <Compile Include="BL\BL_ProductCategory.cs" />
+    <Compile Include="DAL\DAL_Language.cs" />
     <Compile Include="DAL\DAL_Product.cs" />
     <Compile Include="DAL\DAL_ProductCategory.cs" />
     <Compile Include="DATA\AppDBContext.cs" />

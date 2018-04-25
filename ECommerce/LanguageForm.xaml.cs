@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Syntra.VDOAP.CProef.ECommerce.LIB.BL;
+using Syntra.VDOAP.CProef.ECommerce.LIB.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,72 @@ namespace Syntra.VDOAP.CProef.ECommerce
     /// </summary>
     public partial class LanguageForm : UserControl
     {
-        public LanguageForm()
+        bool validating;
+
+        public delegate void ModelSavedEventHandler(Language Model);
+        public event ModelSavedEventHandler OnModelSaved;
+
+        public Language Model { get; set; }
+        public LanguageForm() : this(new Language())
+        { }
+
+        public LanguageForm(Language model)
         {
             InitializeComponent();
+
+            this.DataContext = this;
+            this.Model = model;
+            setTitle();
+        }
+
+        private void setTitle()
+        {
+            if (Model.IsNew())
+            {
+                Title.Content = "New language";
+            }
+            else Title.Content = "Edit Language";
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            Verifying();
+            if (validating == true)
+            {
+                if (BL_Language.Save(Model))
+                {
+                    if (OnModelSaved != null)
+                    {
+                        OnModelSaved(Model);
+                    }
+                }
+            }
+
+        }
+
+        private void Verifying()
+        {
+            validating = true;
+            errLanguageName = errEnglishName = errISO = null;
+
+            if (txtLanguageName.Text == "")
+            {
+                errLanguageName.Content = "Please give the local name of the language";
+                validating = false;
+            }
+            if (txtLanguageEnglishName.Text == "")
+            {
+                errEnglishName.Content = "Please give the English name of the language";
+            }
+            if (txtLanguageISO.Text == "")
+            {
+                errISO.Content = "Please give the ISO code of the language";
+            }
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

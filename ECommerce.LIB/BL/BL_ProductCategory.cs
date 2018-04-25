@@ -8,21 +8,19 @@ using System.Threading.Tasks;
 
 namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
 {
-    public static class BL_Product
+    public static class BL_ProductCategory
     {
-
-        public static bool Save(Product Model,Localize_Product Localize_Model)
+        public static bool Save(ProductCategory Model, Localize_ProductCategory Localize_Model)
         {
             try
             {
-
                 if (Model.IsNew())
                 {
-                    Create(Model,Localize_Model);
+                    Create(Model, Localize_Model);
                 }
                 else
                 {
-                    Update(Model,Localize_Model);
+                    Update(Model, Localize_Model);
                 }
             }
             catch (Exception)
@@ -30,27 +28,14 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
 
                 throw;
             }
-           return true;
-        }
-        public static void Create(Product model,Localize_Product localize_model)
-        {
+            return true;
+        }      
 
-            try
-            {
-                DAL_Product.Create(model,localize_model);
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
-
-        public static void Update(Product model,Localize_Product localize_model)
+        private static void Create(ProductCategory model, Localize_ProductCategory localize_model)
         {
             try
             {
-                DAL_Product.Update(model,localize_model);
+                DAL_ProductCategory.Create(model, localize_model);
             }
             catch (Exception)
             {
@@ -59,11 +44,11 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
             }
         }
 
-        public static List<Product> GetAll()
+        private static void Update(ProductCategory model, Localize_ProductCategory localize_model)
         {
             try
             {
-                return DAL_Product.GetAll();
+                DAL_ProductCategory.Update(model, localize_model);
             }
             catch (Exception)
             {
@@ -72,7 +57,20 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
             }
         }
 
-        public static void Delete(Product model, Localize_Product localize_model)
+        public static List<ProductCategory> GetAll()
+        {
+            try
+            {
+                return DAL_ProductCategory.GetAll();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static void Delete(ProductCategory model, Localize_ProductCategory localize_model)
         {
             try
             {
@@ -84,6 +82,6 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
                 throw;
             }
         }
+
     }
 }
-

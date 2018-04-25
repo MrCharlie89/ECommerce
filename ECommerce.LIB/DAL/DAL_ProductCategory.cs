@@ -11,11 +11,14 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.DAL
 {
     public static class DAL_ProductCategory
     {
-        public static void Create(ProductCategory model)
+        public static void Create(ProductCategory model, Localize_ProductCategory localize_model)
         {
             var ctx = AppDBContext.Instance();
 
             ctx.ProductCategories.Add(model);
+
+            localize_model.Category_ID = model.Id;
+            ctx.localize_ProductCategories.Add(localize_model);
             ctx.SaveChanges();
         }
 
@@ -35,7 +38,7 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.DAL
         //                .OrderBy(pc => pc.Name)
         //                .ToList();
         //}
-        public static void Update(ProductCategory model)
+        public static void Update(ProductCategory model, Localize_ProductCategory localize_model)
         {
             var ctx = AppDBContext.Instance();
 
