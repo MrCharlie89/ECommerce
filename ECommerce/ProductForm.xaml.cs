@@ -42,6 +42,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
             grdProductForm.DataContext = this;
             setTitle();
         }
+       
 
         private void setTitle()
         {
@@ -120,8 +121,10 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
+            if (MessageBox.Show("Do you want to cancel?", "Cancel" , MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
 
-
+            }
         }
     }
 }

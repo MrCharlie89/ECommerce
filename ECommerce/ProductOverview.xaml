@@ -17,7 +17,7 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnDetails" Content="Details"></Button>
+                            <Button x:Name="btnDetails" Content="Details" Click="btnDetails_Click"></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -25,10 +25,11 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnDelete" Content="Delete"></Button>
+                            <Button x:Name="btnDelete" Content="Delete" Click="btnDelete_Click"></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                
 
             </DataGrid.Columns>
         </DataGrid>
