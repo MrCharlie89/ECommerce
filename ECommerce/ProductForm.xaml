@@ -59,7 +59,8 @@
                     </Grid>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Right">
-                    <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="btnCancel_Click" Margin="5,5,5,5"/>
+                    <Button Name="btnCancel" IsCancel="true" Click="btnCancel_Click"  Width="75"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,5,5">Cancel</Button>
+                    <!--<Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" IsCancel="True" Click="OnClickCancel"  Margin="5,5,5,5"/> !-->
                     <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="btnSave_Click" Margin="5,5,5,5"/>
                 </WrapPanel>
             </StackPanel>
