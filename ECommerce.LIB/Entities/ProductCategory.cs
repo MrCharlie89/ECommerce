@@ -11,7 +11,7 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.Entities
     [Table("product_categories")]
     public class ProductCategory : BaseEntity<int>
     {
-        [Key]
+        [Key] 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
         public override int Id { get; set; }
