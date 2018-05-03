@@ -123,7 +123,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
         {
             if (MessageBox.Show("Do you want to cancel?", "Cancel" , MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-
+                this.Visibility = Visibility.Collapsed;
             }
         }
     }

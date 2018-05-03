@@ -27,7 +27,10 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            if (MessageBox.Show("Do you want to cancel?", "Cancel", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                this.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)

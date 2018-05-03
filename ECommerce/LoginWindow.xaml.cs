@@ -1,6 +1,7 @@
 ﻿using ECommerce;
 using Syntra.VDOAP.CProef.ECommerce.LIB.DATA;
 using Syntra.VDOAP.CProef.ECommerce.LIB.Extensions;
+using Syntra.VDOAP.CProef.ECommerce.Products;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -88,7 +89,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
             if (correctCredentials)
             {
-                new MainWindow().Show();
+                new StartWindow().Show();
                 this.Close();
             }
 

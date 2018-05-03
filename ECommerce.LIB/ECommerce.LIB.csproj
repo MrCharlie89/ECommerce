@@ -78,6 +78,10 @@
     <Compile Include="Migrations\201804201847097_localizemodel.Designer.cs">
       <DependentUpon>201804201847097_localizemodel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805021311360_redo.cs" />
+    <Compile Include="Migrations\201805021311360_redo.Designer.cs">
+      <DependentUpon>201805021311360_redo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -94,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804201847097_localizemodel.resx">
       <DependentUpon>201804201847097_localizemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805021311360_redo.resx">
+      <DependentUpon>201805021311360_redo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
