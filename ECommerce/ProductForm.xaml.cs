@@ -33,6 +33,8 @@ namespace Syntra.VDOAP.CProef.ECommerce
             AddLocalizedTabs();
         }
 
+        public ProductForm() : this(new Product()) { }
+
         bool validating;
 
         public delegate void ModelSavedEventHandler(Product Model);
@@ -40,8 +42,9 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
         public Product Model { get; set; }
 
-        // VERWIJDEREN NA TOEVOEGING TALEN
+
         List<Language> LanguageList { get; set; }
+
         /// <summary>
         /// adding dynamic tabs, labels and textboxes
         /// </summary>
@@ -53,7 +56,8 @@ namespace Syntra.VDOAP.CProef.ECommerce
             LanguageList = BL_Language.GetAll();
             Model.Localize_Product = new List<Localize_Product>();
 
-            foreach (var langs in LanguageList) {
+            foreach (var langs in LanguageList)
+            {
 
                 Localize_Product locProd = new Localize_Product
                 {
@@ -63,16 +67,17 @@ namespace Syntra.VDOAP.CProef.ECommerce
                 TabItem tabLocalized = new TabItem
                 {
                     FontSize = 20,
-                    Header = langs.LanguageName , // Moet langs.englishname zijn!! 
+                    Header = langs.LanguageName,
+                    BorderThickness = new Thickness(1,1,1,1),
                     Name = "TIProdLocalized" + langs.LanguageName
 
                 };
                 TCLocalized.Items.Add(tabLocalized);
-                
+
 
                 ScrollViewer ScrollingTab = new ScrollViewer
                 {
-                    VerticalScrollBarVisibility = ScrollBarVisibility.Auto
+                    VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
                 };
 
                 WrapPanel Wrapper = new WrapPanel();
@@ -159,7 +164,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
                     HorizontalAlignment = HorizontalAlignment.Left,
                     VerticalAlignment = VerticalAlignment.Top,
                     VerticalContentAlignment = VerticalAlignment.Top,
-                    BorderThickness = new Thickness(1,1,1,1),
+                    BorderThickness = new Thickness(1, 1, 1, 1),
                     Margin = new Thickness(0, 5, 0, 5)
                 };
                 Binding bindingDescription = new Binding("Description")
@@ -221,10 +226,9 @@ namespace Syntra.VDOAP.CProef.ECommerce
             }
         }
 
-        public ProductForm() : this(new Product()) { }
 
-        
-       
+
+
 
         private void setTitle()
         {
@@ -304,7 +308,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Do you want to cancel?", "Cancel" , MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Do you want to cancel?", "Cancel", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 this.Visibility = Visibility.Collapsed;
             }

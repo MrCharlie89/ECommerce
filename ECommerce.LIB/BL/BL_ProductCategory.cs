@@ -10,17 +10,17 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
 {
     public static class BL_ProductCategory
     {
-        public static bool Save(ProductCategory Model, Localize_ProductCategory Localize_Model)
+        public static bool Save(ProductCategory Model)
         {
             try
             {
                 if (Model.IsNew())
                 {
-                    Create(Model, Localize_Model);
+                    Create(Model);
                 }
                 else
                 {
-                    Update(Model, Localize_Model);
+                    Update(Model);
                 }
             }
             catch (Exception)
@@ -31,11 +31,11 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
             return true;
         }      
 
-        private static void Create(ProductCategory model, Localize_ProductCategory localize_model)
+        private static void Create(ProductCategory model)
         {
             try
             {
-                DAL_ProductCategory.Create(model, localize_model);
+                DAL_ProductCategory.Create(model);
             }
             catch (Exception)
             {
@@ -44,11 +44,11 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
             }
         }
 
-        private static void Update(ProductCategory model, Localize_ProductCategory localize_model)
+        private static void Update(ProductCategory model)
         {
             try
             {
-                DAL_ProductCategory.Update(model, localize_model);
+                DAL_ProductCategory.Update(model);
             }
             catch (Exception)
             {
@@ -70,7 +70,7 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
             }
         }
 
-        public static void Delete(ProductCategory model, Localize_ProductCategory localize_model)
+        public static void Delete(ProductCategory model)
         {
             try
             {
