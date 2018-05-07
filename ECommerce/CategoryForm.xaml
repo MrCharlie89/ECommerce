@@ -20,12 +20,12 @@
 
                         <StackPanel Grid.Column="0" HorizontalAlignment="Stretch">
                             <Label x:Name="CategoryName" Content="Category name: " HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5"/>
-                            <Label x:Name="CategoryDescription" Content="Decription: " HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5"/>
+                            <Label x:Name="CategoryDescription" Content="Decription: " HorizontalContentAlignment="Right" Height="30" Margin="0,20,0,5"/>
                         </StackPanel>
 
                         <StackPanel Grid.Column="1" HorizontalAlignment="Stretch">
                             <TextBox x:Name="txtCategoryName" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.Name}"></TextBox>
-                            <TextBox x:Name="txtCategoryDescription" HorizontalAlignment="Right" Width="200" Height="80" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,5,0,5" Text="{Binding Path=Model.Description}"></TextBox>
+                            <TextBox x:Name="txtCategoryDescription" VerticalContentAlignment="Top" HorizontalAlignment="Right" Width="200" Height="80" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,5,0,5" Text="{Binding Path=Model.Description}"></TextBox>
                         </StackPanel>
 
 

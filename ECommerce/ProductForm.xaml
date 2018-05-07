@@ -15,9 +15,11 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid  Grid.IsSharedSizeScope="True" Margin="0,0,0,0" >
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel Background="White" HorizontalAlignment="Center">
-                <Label x:Name="Title" Content=" Add new product" HorizontalAlignment="Center"/>
+        <Label x:Name="Title" Content=" Add new product" HorizontalAlignment="Center"/>
+        <TabControl x:Name="TCLocalized" Margin="0,40,0,239"></TabControl>
+        
+            <StackPanel Background="White" Height="274" Width="644" Margin="70,216,86,-40">
+               
 
                 <WrapPanel Background="White" VerticalAlignment="Top" HorizontalAlignment="Center">
                     <Grid HorizontalAlignment="Center">
@@ -29,11 +31,7 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="1" HorizontalAlignment="Stretch">
-                            <Label x:Name="ProductName" Content="Product name: " HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5" />
                             <Label x:Name="ProductCategory" Content="Product category: " HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5"/>
-                            <Label x:Name="ProductDescription" Content="Product description: " HorizontalContentAlignment="Right" Height="90" Margin="0,5,0,5"/>
-                            <Label x:Name="ProductMaterial" Content="Material: " HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5"/>
-                            <Label x:Name="ProductColor" Content="Color: "  HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5"/>
                             <Label x:Name="ProductPrice" Content="Unit price: " HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5"/>
                             <Label x:Name="ProductStock" Content="current products in stock: " HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5"/>
                             <Label x:Name="ProductBarcode" Content="Barcode: " HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5"/>
@@ -41,17 +39,18 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="2" HorizontalAlignment="Stretch">
-                            <TextBox x:Name="txtProductName" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Localize_Model.ProductName}" ></TextBox>
                             <ComboBox x:Name="combProductCategory" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" ></ComboBox>
-                            <TextBox x:Name="txtProductDescription" HorizontalAlignment="Right" Width="250" Height="90" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,5,0,5" Text="{Binding Path=Localize_Model.Description}"></TextBox>
-                            <TextBox x:Name="txtProductMaterial" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Localize_Model.Material}"></TextBox>
-                            <TextBox x:Name="txtProductColor" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.Color}"></TextBox>
                             <TextBox x:Name="txtProductPrice" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.UnitPrice}"></TextBox>
                             <TextBox x:Name="txtProductStock" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.CurrentStock}"></TextBox>
                             <TextBox x:Name="txtProductBarcode" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.ProductCode}"></TextBox>
                             <CheckBox x:Name="checkProductIsActive" HorizontalAlignment="Right" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" IsChecked="{Binding Path=Model.IsActive}" ></CheckBox>
                         </StackPanel>
                         <StackPanel Grid.Column="3" HorizontalAlignment="Stretch">
+                            <Button x:Name="btnLanguageChange" Height="50" Width="50" Margin="0,5,0,5" >
+                                <Image Source="resources/images/homepage_cookitup.png" Height="50" Width="50" RenderTransformOrigin="-1.083,0.383"/>
+                            </Button>
+                        </StackPanel>
+                        <!--<StackPanel Grid.Column="3" HorizontalAlignment="Stretch">
                             <Label x:Name="errProductName" Width="350" Height="30" Margin="2,5,5,5" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
                             <Label Width="350" Height="30" Margin="2,5,5,5" VerticalContentAlignment="Center"></Label>
                             <Label x:Name="errProductDescription" Width="350" Height="90" Margin="2,5,5,5" VerticalContentAlignment="Center" HorizontalContentAlignment="left"></Label>
@@ -62,16 +61,15 @@
                             <Label x:Name="errBarcode" Width="350" Height="30" Margin="2,5,5,5" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
 
 
-                        </StackPanel>
+                        </StackPanel>-->
                     </Grid>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Right">
                     <Button Name="btnCancel" IsCancel="true" Click="btnCancel_Click"  Width="75"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,5,5">Cancel</Button>
-                    <!--<Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" IsCancel="True" Click="OnClickCancel"  Margin="5,5,5,5"/> !-->
                     <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="btnSave_Click" Margin="5,5,5,5"/>
                 </WrapPanel>
             </StackPanel>
-        </ScrollViewer>
+      
 
 
     </Grid>

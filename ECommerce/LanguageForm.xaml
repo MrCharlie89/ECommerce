@@ -23,6 +23,8 @@
                             <Label x:Name="LanguageName" Content="Language name: " HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5"/>
                             <Label x:Name="LanguageEnglishName" Content="English language name: " HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5"/>
                             <Label x:Name="LanguageISO" Content="ISO code language: " HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5"/>
+                            <Label x:Name="LanguageIsActive" Content="Is an active language: " HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5"></Label>
+                            <Label x:Name="LanguageIsDefault" Content="Is the default language: " HorizontalContentAlignment="Right" Height="30" Margin="0,5,0,5"></Label>
 
                         </StackPanel>
 
@@ -30,9 +32,11 @@
                             <TextBox x:Name="txtLanguageName" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.LocalName}"></TextBox>
                             <TextBox x:Name="txtLanguageEnglishName" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.LanguageName}"></TextBox>
                             <TextBox x:Name="txtLanguageISO" HorizontalAlignment="Right" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Path=Model.ISO}"></TextBox>
+                            <CheckBox x:Name="checkboxIsActiveLanguage" Style="{StaticResource MaterialDesignCheckBox}" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" IsChecked="{Binding Path=Model.IsActive}"></CheckBox>
+                            <CheckBox x:Name="checkboxIsDefaultLanguage" Style="{StaticResource MaterialDesignCheckBox}" Width="200" Height="30" VerticalContentAlignment="Center" Margin="0,5,0,5" IsChecked="{Binding Path=Model.IsDefault}"></CheckBox>
 
                         </StackPanel>
-                        
+
                         <StackPanel Grid.Column="2" HorizontalAlignment="Stretch">
                             <Label x:Name="errLanguageName" Width="350" Height="30" Margin="2,5,5,5" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
                             <Label x:Name="errEnglishName" Width="350" Height="30" Margin="2,5,5,5" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>

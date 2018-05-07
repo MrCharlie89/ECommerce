@@ -11,20 +11,17 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.DAL
 {
     public static class DAL_Product
     {
-        public static void Create(Product model,Localize_Product localize_model)
+        public static void Create(Product model)
         {
             var ctx = AppDBContext.Instance();
 
             //model.Category_ID = 1;
 
             ctx.Products.Add(model);
-
-            localize_model.Product_ID = model.Id;
-            ctx.localize_Products.Add(localize_model);
             ctx.SaveChanges();
         }
 
-        public static void Update(Product model,Localize_Product localize_model)
+        public static void Update(Product model)
         {
             var ctx = AppDBContext.Instance();
 

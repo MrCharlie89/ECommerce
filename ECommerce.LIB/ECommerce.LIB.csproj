@@ -82,6 +82,10 @@
     <Compile Include="Migrations\201805021311360_redo.Designer.cs">
       <DependentUpon>201805021311360_redo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805041725561_update language table.cs" />
+    <Compile Include="Migrations\201805041725561_update language table.Designer.cs">
+      <DependentUpon>201805041725561_update language table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805021311360_redo.resx">
       <DependentUpon>201805021311360_redo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805041725561_update language table.resx">
+      <DependentUpon>201805041725561_update language table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

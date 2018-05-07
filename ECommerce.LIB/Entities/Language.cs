@@ -26,6 +26,13 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.Entities
         [Column("local name")]
         public string LocalName { get; set; }
 
+        [Column("Is active")]
+        public bool IsActive { get; set; }
+
+        [Column("Is default")]
+        public bool IsDefault { get; set; }
+
+
         public virtual ICollection<Localize_ProductCategory> Localize_ProductCategories { get; set; }
         public virtual ICollection<Localize_Product> Localize_Product { get; set; }
 
