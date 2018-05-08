@@ -59,12 +59,12 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.DATA
             //
 
             modelBuilder.Entity<Localize_Product>()
-               .HasKey(lp => new { lp.Product_ID, lp.Language_ID });
+               .HasKey(lp => new { lp.Id, lp.Language_ID });
 
             modelBuilder.Entity<Product>()
                 .HasMany(p => p.Localize_Product)
                 .WithRequired()
-                .HasForeignKey(lp => lp.Product_ID);
+                .HasForeignKey(lp => lp.Id);
 
             modelBuilder.Entity<Language>()
                .HasMany(l => l.Localize_Product)

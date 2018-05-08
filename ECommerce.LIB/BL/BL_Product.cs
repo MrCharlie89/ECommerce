@@ -32,6 +32,7 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
             }
            return true;
         }
+
         public static void Create(Product model)
         {
 

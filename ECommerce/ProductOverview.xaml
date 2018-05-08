@@ -5,33 +5,37 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Syntra.VDOAP.CProef.ECommerce"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="White">
-    <Grid Grid.IsSharedSizeScope="True" Margin="0,0,0,0">
-        <Label x:Name="Title" Content=" Product Overview" Margin="0,0,656,491" HorizontalAlignment="Center"></Label>
-        <DataGrid x:Name="dgrdProducts" AutoGenerateColumns="False" CanUserAddRows="False" RowEditEnding="dgrdProducts_RowEditEnding" Margin="0,29,0,0">
-            <DataGrid.Columns>
-                <DataGridTextColumn x:Name="columnProductName" Width="*" Header="Productname" Binding="{Binding Path=ProductName, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                <DataGridTextColumn x:Name="columnProductCategory" Width="*" Header="Category" Binding="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                <DataGridTextColumn x:Name="columnProductStock" Width="*" Header="Current stock" Binding="{Binding Path=CurrentStock, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+             d:DesignHeight="650" d:DesignWidth="1000" Background="{DynamicResource MaterialDesignPaper}">
+    <Grid>
+        <Label x:Name="Title" Content=" Product Overview" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center"></Label>
+       
+            <DataGrid x:Name="dgrdProducts" AutoGenerateColumns="False" CanUserAddRows="False" RowEditEnding="dgrdProducts_RowEditEnding" Margin="0,29,0,0">
 
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button x:Name="btnDetails" Content="Details" Click="btnDetails_Click"></Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGrid.Columns>
+                <DataGridTextColumn x:Name="columnProductName" Width="300" MinWidth="50" Header="Productname" Binding="{Binding Path=ProductName, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                <DataGridTextColumn x:Name="columnProductCategory" Width="300" MinWidth="30" Header="Category" Binding="{Binding Path=CategoryName, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTextColumn x:Name="columnProductStock" Width="200" Header="Current stock" Binding="{Binding Path=CurrentStock, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
 
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button x:Name="btnDelete" Content="Delete" Click="btnDelete_Click"></Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnDetails" Content="Details" Click="btnDetails_Click"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
-            </DataGrid.Columns>
-        </DataGrid>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnDelete" Content="Delete" Click="btnDelete_Click"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+       
     </Grid>
 </UserControl>

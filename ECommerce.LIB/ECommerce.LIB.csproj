@@ -86,6 +86,30 @@
     <Compile Include="Migrations\201805041725561_update language table.Designer.cs">
       <DependentUpon>201805041725561_update language table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805081024412_product edit.cs" />
+    <Compile Include="Migrations\201805081024412_product edit.Designer.cs">
+      <DependentUpon>201805081024412_product edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805081237027_productcategory edit.cs" />
+    <Compile Include="Migrations\201805081237027_productcategory edit.Designer.cs">
+      <DependentUpon>201805081237027_productcategory edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805081246166_productcategories edit 2.cs" />
+    <Compile Include="Migrations\201805081246166_productcategories edit 2.Designer.cs">
+      <DependentUpon>201805081246166_productcategories edit 2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805081248459_update product category.cs" />
+    <Compile Include="Migrations\201805081248459_update product category.Designer.cs">
+      <DependentUpon>201805081248459_update product category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805081251376_update.cs" />
+    <Compile Include="Migrations\201805081251376_update.Designer.cs">
+      <DependentUpon>201805081251376_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805081254153_update 2.cs" />
+    <Compile Include="Migrations\201805081254153_update 2.Designer.cs">
+      <DependentUpon>201805081254153_update 2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -108,6 +132,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805041725561_update language table.resx">
       <DependentUpon>201805041725561_update language table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805081024412_product edit.resx">
+      <DependentUpon>201805081024412_product edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805081237027_productcategory edit.resx">
+      <DependentUpon>201805081237027_productcategory edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805081246166_productcategories edit 2.resx">
+      <DependentUpon>201805081246166_productcategories edit 2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805081248459_update product category.resx">
+      <DependentUpon>201805081248459_update product category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805081251376_update.resx">
+      <DependentUpon>201805081251376_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805081254153_update 2.resx">
+      <DependentUpon>201805081254153_update 2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -63,7 +63,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
                 {
                     FontSize = 20,
                     Header = langs.LanguageName,
-                    Name = "TIProdCatLocalized" + langs.LanguageName
+                    Name = "TIProdCatLocalized" + langs.LanguageName             
                 };
                 TCLocalized.Items.Add(tabLocalized);
 
@@ -87,7 +87,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
                 Label lblName = new Label
                 {
-                    Content = "Category name",
+                    Content = "Category name: ",
                     Width = 250,
                     FontSize = 20,
                     HorizontalAlignment = HorizontalAlignment.Right,
@@ -99,7 +99,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
                 Label lblDescription = new Label
                 {
-                    Content = "Category description",
+                    Content = "Category description: ",
                     Width = 250,                    
                     FontSize = 20,
                     HorizontalAlignment = HorizontalAlignment.Right,
@@ -112,21 +112,22 @@ namespace Syntra.VDOAP.CProef.ECommerce
                 TextBox txtName = new TextBox
                 {
                     Width = 250,
-                    Height = 30,
+                    Height = 40,
                     HorizontalAlignment = HorizontalAlignment.Left,
                     VerticalAlignment = VerticalAlignment.Top,
                     VerticalContentAlignment = VerticalAlignment.Center,
                     Margin = new Thickness(0, 5, 0, 5)
                 };
-                Binding bindingName = new Binding("Name")
+                Binding bindingName = new Binding("CategoryName")
                 {
                     Source = locCat
                 };
+                txtName.SetBinding(TextBox.TextProperty, bindingName);
 
                 TextBox txtDescription = new TextBox
                 {
                     Width = 250,
-                    Height = 90,
+                    Height = 100,
                     TextWrapping = TextWrapping.Wrap,
                     HorizontalAlignment = HorizontalAlignment.Left,
                     VerticalAlignment = VerticalAlignment.Top,
@@ -134,10 +135,11 @@ namespace Syntra.VDOAP.CProef.ECommerce
                     BorderThickness = new Thickness(1, 1, 1, 1),
                     Margin = new Thickness(0, 5, 0, 5)
                 };
-                Binding bindingDescription = new Binding("Description")
+                Binding bindingDescription = new Binding("CategoryDescription")
                 {
                     Source = locCat
                 };
+                txtDescription.SetBinding(TextBox.TextProperty, bindingDescription);
 
                 Model.Localize_ProductCategories.Add(locCat);
 
@@ -177,7 +179,11 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            BL_ProductCategory.Create(Model);
+            if (MessageBox.Show("Productcategory saved", "Productcategory saved",MessageBoxButton.OK) == MessageBoxResult.OK)
+            {
+                this.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

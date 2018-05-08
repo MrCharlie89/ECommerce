@@ -28,7 +28,8 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
         private void BindData()
         {
-            datasource = new ObservableCollection<Product>(BL_Product.GetAll());
+            datasource = new ObservableCollection<Product>(BL_Product.GetAll());           
+            
            // datasource.CollectionChanged += DataSourceChanged;
             dgrdProducts.ItemsSource = datasource;
             dgrdProducts.DataContext = datasource;

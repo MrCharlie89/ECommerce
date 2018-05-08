@@ -47,7 +47,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
         private void showDetails()
         {
             txtProductName.Text = Localize_Model.ProductName;
-            txtProductCategory.Text = Localize_Cat.Name;
+            txtProductCategory.Text = Localize_Cat.CategoryName;
             txtProductDescription.Text = Localize_Model.Description;
             txtProductMaterial.Text = Localize_Model.Material;
             txtProductColor.Text = Localize_Model.Color;

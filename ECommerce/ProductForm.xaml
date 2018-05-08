@@ -15,40 +15,45 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid  Grid.IsSharedSizeScope="True" Margin="0,0,0,-207" >
-       
-            <Label x:Name="Title" Content=" Add new product" HorizontalAlignment="Center"/>
 
-            <TabControl x:Name="TCLocalized" Margin="0,40,0,239" BorderThickness="0,1,0,0" BorderBrush="Transparent"></TabControl>
+        <Label x:Name="Title" Content=" Add new product" HorizontalAlignment="Center"/>
 
-            <StackPanel Background="White" Width="644" Margin="-150,305,119,0">
+        <TabControl x:Name="TCLocalized" Margin="0,40,0,239" BorderThickness="0,1,0,0" BorderBrush="Transparent" Background="{DynamicResource MaterialDesignPaper}"></TabControl>
+
+        <StackPanel Background="{DynamicResource MaterialDesignPaper}" Width="644" Margin="-150,345,119,0">
 
 
-                <WrapPanel Background="White" VerticalAlignment="Top" HorizontalAlignment="Center">
-                    <Grid HorizontalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.0*"/>
-                            <ColumnDefinition Width="0.40*"/>
-                            <ColumnDefinition Width="0.35*"/>
-                            <ColumnDefinition Width="0.15*"/>
-                        </Grid.ColumnDefinitions>
+            <WrapPanel Background="{DynamicResource MaterialDesignPaper}" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Grid HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.0*"/>
+                        <ColumnDefinition Width="0.40*"/>
+                        <ColumnDefinition Width="0.35*"/>
+                        <ColumnDefinition Width="0.15*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Column="1" HorizontalAlignment="Stretch">
-                            <Label x:Name="ProductCategory" Content="Product category: " FontSize="20" HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"/>
-                            <Label x:Name="ProductPrice" Content="Unit price: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
-                            <Label x:Name="ProductStock" Content="current products in stock: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
-                            <Label x:Name="ProductBarcode" Content="Barcode: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
-                            <Label x:Name="ProductIsActive" Content="In product range: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
-                        </StackPanel>
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Stretch">
+                        <Label x:Name="ProductCategory" Content="Product category: " FontSize="20" HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"/>
+                        <Label x:Name="ProductPrice" Content="Unit price: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
+                        <Label x:Name="ProductStock" Content="current products in stock: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
+                        <Label x:Name="ProductBarcode" Content="Barcode: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
+                        <Label x:Name="ProductIsActive" Content="In product range: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
+                    </StackPanel>
 
-                        <StackPanel Grid.Column="2" HorizontalAlignment="Stretch">
-                            <ComboBox x:Name="combProductCategory" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5"  FontSize="20"/>
-                            <TextBox x:Name="txtProductPrice" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Model.UnitPrice}"  FontSize="20"/>
-                            <TextBox x:Name="txtProductStock" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Model.CurrentStock}"  FontSize="20"/>
-                            <TextBox x:Name="txtProductBarcode" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Model.ProductCode}"  FontSize="20"/>
-                            <CheckBox x:Name="checkProductIsActive" HorizontalAlignment="Right" Width="250" Height="40"  Margin="0,5,0,5" IsChecked="{Binding Model.IsActive}" />
-                        </StackPanel>
+                    <StackPanel Grid.Column="2" HorizontalAlignment="Stretch">
+                        <ComboBox x:Name="combProductCategory" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5"  FontSize="20"
+                                  ItemsSource="{Binding Path= CategoryList}"
+                                  DisplayMemberPath="Name"
+                                  SelectedValue="{Binding Path=Model.Category_ID}"
+                                  SelectedValuePath="Category_ID"
+                                  />
+                        <TextBox x:Name="txtProductPrice" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Model.UnitPrice}"  FontSize="20"/>
+                        <TextBox x:Name="txtProductStock" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Model.CurrentStock}"  FontSize="20"/>
+                        <TextBox x:Name="txtProductBarcode" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Model.ProductCode}"  FontSize="20"/>
+                        <CheckBox x:Name="checkProductIsActive" HorizontalAlignment="Right" Width="250" Height="40"  Margin="0,5,0,5" IsChecked="{Binding Model.IsActive}" />
+                    </StackPanel>
 
-                        <!--<StackPanel Grid.Column="3" HorizontalAlignment="Stretch">
+                    <!--<StackPanel Grid.Column="3" HorizontalAlignment="Stretch">
                             <Label x:Name="errProductName" Width="350" Height="30" Margin="2,5,5,5" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
                             <Label Width="350" Height="30" Margin="2,5,5,5" VerticalContentAlignment="Center"></Label>
                             <Label x:Name="errProductDescription" Width="350" Height="90" Margin="2,5,5,5" VerticalContentAlignment="Center" HorizontalContentAlignment="left"></Label>
@@ -65,13 +70,13 @@
                          Images toevoegen
                         -->
                     </WrapPanel>
-                    </Grid>
-                </WrapPanel>
-                <WrapPanel HorizontalAlignment="Right">
-                    <Button x:Name="btnCancel" IsCancel="true" Click="btnCancel_Click"  Width="75"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,5,5" Content="Cancel"/>
-                    <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="btnSave_Click" Margin="5,5,5,5"/>
-                </WrapPanel>
-            </StackPanel>
-    
+                </Grid>
+            </WrapPanel>
+        <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button x:Name="btnCancel" IsCancel="true" Click="btnCancel_Click"  Width="75"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,5,5" Content="Cancel"/>
+            <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="btnSave_Click" Margin="5,5,5,5"/>
+        </WrapPanel>
+
+        </StackPanel>
     </Grid>
 </UserControl>

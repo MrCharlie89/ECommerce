@@ -31,7 +31,7 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
             return true;
         }      
 
-        private static void Create(ProductCategory model)
+        public static void Create(ProductCategory model)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
             }
         }
 
-        private static void Update(ProductCategory model)
+        public static void Update(ProductCategory model)
         {
             try
             {

@@ -14,8 +14,8 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.Entities
         [Column("language ID")]
         public int Language_ID { get; set; }
 
-        [Column("Product ID")]
-        public int Product_ID { get; set; }
+        [Column("id")]
+        public int Id{ get; set; }
 
         [Column("name")]
         [StringLength(255, ErrorMessage = "The name can maximum have 255 characters.")]

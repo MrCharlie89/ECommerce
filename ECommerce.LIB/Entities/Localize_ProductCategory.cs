@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Syntra.VDOAP.CProef.ECommerce.LIB.Entities
 {
+    [Table("Localize_ProductCategory")]
     public class Localize_ProductCategory
     {
 
@@ -17,13 +18,13 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.Entities
         [Column("language ID")]
         public int Language_ID { get; set; }
 
-        [Column("name")]
+        [Column("Category name")]
         [StringLength(255, ErrorMessage = "The name can maximum have 255 characters.")]
         [Required(ErrorMessage = "The name is required.")]
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
 
         [Column("descr")]
-        public string Description { get; set; }
+        public string CategoryDescription { get; set; }
 
 
     }

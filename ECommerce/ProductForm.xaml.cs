@@ -31,6 +31,8 @@ namespace Syntra.VDOAP.CProef.ECommerce
             grdProductForm.DataContext = this;
             setTitle();
             AddLocalizedTabs();
+
+           
         }
 
         public ProductForm() : this(new Product()) { }
@@ -41,6 +43,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
         public event ModelSavedEventHandler OnModelSaved;
 
         public Product Model { get; set; }
+
 
 
         List<Language> LanguageList { get; set; }
@@ -68,7 +71,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
                 {
                     FontSize = 20,
                     Header = langs.LanguageName,
-                    BorderThickness = new Thickness(1,1,1,1),
+                    BorderThickness = new Thickness(1, 1, 1, 1),
                     Name = "TIProdLocalized" + langs.LanguageName
 
                 };
@@ -126,7 +129,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
                     VerticalAlignment = VerticalAlignment.Top,
                     HorizontalContentAlignment = HorizontalAlignment.Right,
                     VerticalContentAlignment = VerticalAlignment.Center,
-                    Margin = new Thickness(0, 5, 0, 5)
+                    Margin = new Thickness(0, 46, 0, 5)
                 };
 
                 Label lblColor = new Label
@@ -138,13 +141,13 @@ namespace Syntra.VDOAP.CProef.ECommerce
                     VerticalAlignment = VerticalAlignment.Top,
                     HorizontalContentAlignment = HorizontalAlignment.Right,
                     VerticalContentAlignment = VerticalAlignment.Center,
-                    Margin = new Thickness(0, 5, 0, 5)
+                    Margin = new Thickness(0, 6, 0, 5)
                 };
 
                 TextBox txtName = new TextBox
                 {
                     Width = 250,
-                    Height = 30,
+                    Height = 40,
                     HorizontalAlignment = HorizontalAlignment.Left,
                     VerticalAlignment = VerticalAlignment.Top,
                     VerticalContentAlignment = VerticalAlignment.Center,
@@ -176,7 +179,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
                 TextBox txtMaterial = new TextBox
                 {
                     Width = 250,
-                    Height = 30,
+                    Height = 40,
                     HorizontalAlignment = HorizontalAlignment.Left,
                     VerticalAlignment = VerticalAlignment.Top,
                     VerticalContentAlignment = VerticalAlignment.Center,
@@ -191,7 +194,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
                 TextBox txtColor = new TextBox
                 {
                     Width = 250,
-                    Height = 30,
+                    Height = 40,
                     HorizontalAlignment = HorizontalAlignment.Left,
                     VerticalAlignment = VerticalAlignment.Top,
                     VerticalContentAlignment = VerticalAlignment.Center,
@@ -242,18 +245,28 @@ namespace Syntra.VDOAP.CProef.ECommerce
         // TODO: adding validation to the textboxes
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            //Verifying();
-            //if (validating == true)
-            //{
-            //    if (BL_Product.Save(Model,Localize_Model))
-            //    {
-            //        if (OnModelSaved != null)
-            //        {
-            //            OnModelSaved(Model);
-            //        }
-            //    }
-            //}
+            BL_Product.Create(Model);
+            if (MessageBox.Show("Product saved", "Product saved", MessageBoxButton.OK) == MessageBoxResult.OK)
+            {
+                this.Visibility = Visibility.Collapsed;
+            }
+            
         }
+
+
+        // moet inside de btnSave_Click
+        //Verifying();
+        //if (validating == true)
+        //{
+        //    if (BL_Product.Save(Model,Localize_Model))
+        //    {
+        //        if (OnModelSaved != null)
+        //        {
+        //            OnModelSaved(Model);
+        //        }
+        //    }
+        //}
+        //}
 
         //private void Verifying()
         //{
@@ -313,5 +326,6 @@ namespace Syntra.VDOAP.CProef.ECommerce
                 this.Visibility = Visibility.Collapsed;
             }
         }
+
     }
 }
