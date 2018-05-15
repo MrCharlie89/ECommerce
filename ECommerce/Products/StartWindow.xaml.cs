@@ -40,7 +40,7 @@ namespace Syntra.VDOAP.CProef.ECommerce.Products
         {
             var form = new ProductForm();
             form.OnModelSaved += OnProductSaved;
-            Productcontent.Content = form;        
+            Productcontent.Content = form;            
         }
 
         private void OnProductSaved(LIB.Entities.Product Model)

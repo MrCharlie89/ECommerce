@@ -18,6 +18,11 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.DATA
         public DbSet<Localize_Product> localize_Products { get; set; }
         public DbSet<Language> languages { get; set; }
 
+        #region Views
+        public DbSet<Views.ProductOverView> vProductOverView { get; set; }
+        #endregion
+
+
 
         private static AppDBContext _instance;
 

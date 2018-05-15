@@ -58,10 +58,12 @@ namespace Syntra.VDOAP.CProef.ECommerce
                 {
                     if (OnModelSaved != null)
                     {
-                        OnModelSaved(Model);
+                        OnModelSaved(Model);                       
+
                     }
                 }
             }
+            this.Visibility = Visibility.Collapsed;
 
         }
 
@@ -78,10 +80,12 @@ namespace Syntra.VDOAP.CProef.ECommerce
             if (txtLanguageEnglishName.Text == "")
             {
                 errEnglishName.Content = "Please give the English name of the language";
+                validating = false;
             }
             if (txtLanguageISO.Text == "")
             {
                 errISO.Content = "Please give the ISO code of the language";
+                validating = false;
             }
         }
 

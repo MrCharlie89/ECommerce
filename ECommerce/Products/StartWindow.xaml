@@ -12,9 +12,10 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         Closing="StartWindow_Closing">    
-    <Grid>
+    <Grid x:Name="grdStartWindow">
+        
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <Grid x:Name="grdProductsandCategories" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Grid HorizontalAlignment="Stretch" x:Name="grdProductsandCategories" VerticalAlignment="Center" >
                 <StackPanel Background="{DynamicResource MaterialDesignPaper}" HorizontalAlignment="Center" >
                     <WrapPanel Margin="5,15,5,5">
                         <Button x:Name="btnAddProduct" Style="{DynamicResource MaterialDesignRaisedButton}"  HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="180" Margin="5,5,10,5" Click="btnAddProduct_Click">
@@ -45,9 +46,11 @@
                 </StackPanel>
 
 
-                <ContentControl x:Name="Productcontent" Margin="-195,10,-199,0"></ContentControl>
+                
 
             </Grid>
         </ScrollViewer>
+
+        <ContentControl x:Name="Productcontent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></ContentControl>
     </Grid>
 </Window>

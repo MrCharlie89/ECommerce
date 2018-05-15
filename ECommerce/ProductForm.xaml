@@ -5,55 +5,47 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Syntra.VDOAP.CProef.ECommerce"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="{DynamicResource MaterialDesignPaper}">
+             mc:Ignorable="d" Background="{DynamicResource MaterialDesignPaper}"
+             d:DesignHeight="800" d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary>
             <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
-                <Setter Property="Margin" Value="0 8 0 8" />
+                <Setter Property="Margin" Value="0,8,0,8" />
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid  Grid.IsSharedSizeScope="True" Margin="0,0,0,-207" >
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center" >     
 
-        <Label x:Name="Title" Content=" Add new product" HorizontalAlignment="Center"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Background="{DynamicResource MaterialDesignPaper}" HorizontalAlignment="Stretch">
+                <Label x:Name="Title" Content=" Add new product" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+                    <TabControl x:Name="TCLocalized" HorizontalAlignment="Center" BorderThickness="0,1,0,0" BorderBrush="Transparent" Background="{DynamicResource MaterialDesignPaper}"></TabControl>
+                    <WrapPanel Background="{DynamicResource MaterialDesignPaper}" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <Grid HorizontalAlignment="Center">
+                            <WrapPanel>
+                            <StackPanel HorizontalAlignment="Stretch">
+                                <Label x:Name="ProductCategory" Content="Product category: " FontSize="20" HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"/>
+                                <Label x:Name="ProductPrice" Content="Unit price: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
+                                <Label x:Name="ProductStock" Content="current products in stock: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
+                                <Label x:Name="ProductBarcode" Content="Barcode: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
+                                <Label x:Name="ProductIsActive" Content="In product range: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
+                            </StackPanel>
 
-        <TabControl x:Name="TCLocalized" Margin="0,40,0,239" BorderThickness="0,1,0,0" BorderBrush="Transparent" Background="{DynamicResource MaterialDesignPaper}"></TabControl>
-
-        <StackPanel Background="{DynamicResource MaterialDesignPaper}" Width="644" Margin="-150,345,119,0">
-
-
-            <WrapPanel Background="{DynamicResource MaterialDesignPaper}" VerticalAlignment="Top" HorizontalAlignment="Center">
-                <Grid HorizontalAlignment="Center">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.0*"/>
-                        <ColumnDefinition Width="0.40*"/>
-                        <ColumnDefinition Width="0.35*"/>
-                        <ColumnDefinition Width="0.15*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <StackPanel Grid.Column="1" HorizontalAlignment="Stretch">
-                        <Label x:Name="ProductCategory" Content="Product category: " FontSize="20" HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"/>
-                        <Label x:Name="ProductPrice" Content="Unit price: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
-                        <Label x:Name="ProductStock" Content="current products in stock: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
-                        <Label x:Name="ProductBarcode" Content="Barcode: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
-                        <Label x:Name="ProductIsActive" Content="In product range: " HorizontalContentAlignment="Right" Height="40" Margin="0,5,0,5"  FontSize="20"/>
-                    </StackPanel>
-
-                    <StackPanel Grid.Column="2" HorizontalAlignment="Stretch">
-                        <ComboBox x:Name="combProductCategory" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5"  FontSize="20"
+                            <StackPanel HorizontalAlignment="Stretch">
+                                <ComboBox x:Name="combProductCategory" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5"  FontSize="20"
                                   ItemsSource="{Binding Path= CategoryList}"
                                   DisplayMemberPath="Name"
                                   SelectedValue="{Binding Path=Model.Category_ID}"
                                   SelectedValuePath="Category_ID"
                                   />
-                        <TextBox x:Name="txtProductPrice" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Model.UnitPrice}"  FontSize="20"/>
-                        <TextBox x:Name="txtProductStock" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Model.CurrentStock}"  FontSize="20"/>
-                        <TextBox x:Name="txtProductBarcode" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Model.ProductCode}"  FontSize="20"/>
-                        <CheckBox x:Name="checkProductIsActive" HorizontalAlignment="Right" Width="250" Height="40"  Margin="0,5,0,5" IsChecked="{Binding Model.IsActive}" />
-                    </StackPanel>
+                                <TextBox x:Name="txtProductPrice" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Model.UnitPrice}"  FontSize="20"/>
+                                <TextBox x:Name="txtProductStock" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Model.CurrentStock}"  FontSize="20"/>
+                                <TextBox x:Name="txtProductBarcode" HorizontalAlignment="Right" Width="250" Height="40" VerticalContentAlignment="Center" Margin="0,5,0,5" Text="{Binding Model.ProductCode}"  FontSize="20"/>
+                                <CheckBox x:Name="checkProductIsActive" HorizontalAlignment="Right" Width="250" Height="40"  Margin="0,5,0,5" IsChecked="{Binding Model.IsActive}" />
 
-                    <!--<StackPanel Grid.Column="3" HorizontalAlignment="Stretch">
+                            </StackPanel>
+                            </WrapPanel>
+                            <!--<StackPanel Grid.Column="3" HorizontalAlignment="Stretch">
                             <Label x:Name="errProductName" Width="350" Height="30" Margin="2,5,5,5" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
                             <Label Width="350" Height="30" Margin="2,5,5,5" VerticalContentAlignment="Center"></Label>
                             <Label x:Name="errProductDescription" Width="350" Height="90" Margin="2,5,5,5" VerticalContentAlignment="Center" HorizontalContentAlignment="left"></Label>
@@ -65,18 +57,21 @@
 
 
                         </StackPanel>-->
-                    <WrapPanel>
-                        <!--TODO:
-                         Images toevoegen
-                        -->
-                    </WrapPanel>
-                </Grid>
-            </WrapPanel>
-        <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
-            <Button x:Name="btnCancel" IsCancel="true" Click="btnCancel_Click"  Width="75"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,5,5" Content="Cancel"/>
-            <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="btnSave_Click" Margin="5,5,5,5"/>
-        </WrapPanel>
 
-        </StackPanel>
-    </Grid>
+                        </Grid>
+                    </WrapPanel>
+
+
+                    <Button x:Name="btnAddImage" Content="Add image" Click="AddImage" Width="200" Height="40" FontSize="20"></Button>
+
+                    <WrapPanel x:Name="imgPanel" HorizontalAlignment="Center"></WrapPanel>
+                    
+                    <WrapPanel HorizontalAlignment="Right">
+                        <Button x:Name="btnCancel" IsCancel="true" Click="btnCancel_Click"  Width="75"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,5,5" Content="Cancel"/>
+                        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="btnSave_Click" Margin="5,5,500,5"/>
+                    </WrapPanel>
+                </StackPanel>
+            </ScrollViewer>
+       
+        </Grid>
 </UserControl>

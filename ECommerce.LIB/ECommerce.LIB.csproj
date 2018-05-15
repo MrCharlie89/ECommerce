@@ -30,11 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CloudinaryDotNet, Version=1.3.0.0, Culture=neutral, PublicKeyToken=c8234dc617ae7841, processorArchitecture=MSIL">
+      <HintPath>..\packages\CloudinaryDotNet.1.3.0\lib\net40\CloudinaryDotNet.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\CloudinaryDotNet.1.3.0\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -56,6 +62,7 @@
     <Compile Include="DAL\DAL_Language.cs" />
     <Compile Include="DAL\DAL_Product.cs" />
     <Compile Include="DAL\DAL_ProductCategory.cs" />
+    <Compile Include="DAL\DAL_ProductImages.cs" />
     <Compile Include="DATA\AppDBContext.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Language.cs" />
@@ -63,6 +70,7 @@
     <Compile Include="Entities\Localize_ProductCategory.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductCategory.cs" />
+    <Compile Include="Entities\ProductImages.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Extensions\ControlExtensions.cs" />
@@ -110,8 +118,21 @@
     <Compile Include="Migrations\201805081254153_update 2.Designer.cs">
       <DependentUpon>201805081254153_update 2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805110947042_productOverView.cs" />
+    <Compile Include="Migrations\201805110947042_productOverView.Designer.cs">
+      <DependentUpon>201805110947042_productOverView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805111022541_test.cs" />
+    <Compile Include="Migrations\201805111022541_test.Designer.cs">
+      <DependentUpon>201805111022541_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805111634292_Images.cs" />
+    <Compile Include="Migrations\201805111634292_Images.Designer.cs">
+      <DependentUpon>201805111634292_Images.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ProductOverView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -150,6 +171,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805081254153_update 2.resx">
       <DependentUpon>201805081254153_update 2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805110947042_productOverView.resx">
+      <DependentUpon>201805110947042_productOverView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805111022541_test.resx">
+      <DependentUpon>201805111022541_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805111634292_Images.resx">
+      <DependentUpon>201805111634292_Images.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

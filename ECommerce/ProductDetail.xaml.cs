@@ -1,4 +1,5 @@
-﻿using Syntra.VDOAP.CProef.ECommerce.LIB.Entities;
+﻿using Syntra.VDOAP.CProef.ECommerce.LIB.BL;
+using Syntra.VDOAP.CProef.ECommerce.LIB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,41 +22,34 @@ namespace Syntra.VDOAP.CProef.ECommerce
     public partial class ProductDetail : Window
     {
         public Product Model { get; set; }
-        public Localize_Product Localize_Model { get; set; }
-        public Localize_ProductCategory Localize_Cat { get; set; }
 
+        public Localize_Product LocalizeProduct { get; set; }
 
-        public ProductDetail() : this (new Product(),new Localize_Product(),new Localize_ProductCategory())
-        {
-            
-        }
-
-        public ProductDetail(Product model, Localize_Product localize_model, Localize_ProductCategory localize_cat)
+        public ProductDetail(int productID)
         {
             InitializeComponent();
-            this.Model = model;
-            this.Localize_Model = localize_model;
-            this.Localize_Cat = localize_cat;
-            showDetails();
-        }
-
-        public ProductDetail(Product model)
-        {
+            Product model = BL_Product.GetProduct(productID);
             Model = model;
-        }
+            int englishId = BL_Language.GetEnglishLanguages().Id;
+            LocalizeProduct = model.Localize_Product.Single(lcp => lcp.Language_ID == englishId);
 
-        private void showDetails()
-        {
-            txtProductName.Text = Localize_Model.ProductName;
-            txtProductCategory.Text = Localize_Cat.CategoryName;
-            txtProductDescription.Text = Localize_Model.Description;
-            txtProductMaterial.Text = Localize_Model.Material;
-            txtProductColor.Text = Localize_Model.Color;
-            //txtProductPrice.Text = Model.UnitPrice.ToString;
-            //txtProductStock.Text = Model.CurrentStock.ToString;
-            txtProductBarcode.Text = Model.ProductCode;
+            this.DataContext = this;
+
 
         }
+
+        //private void showDetails()
+        //{
+        //    txtProductName.Text = Localize_Model.ProductName;
+        //    txtProductCategory.Text = Localize_Cat.CategoryName;
+        //    txtProductDescription.Text = Localize_Model.Description;
+        //    txtProductMaterial.Text = Localize_Model.Material;
+        //    txtProductColor.Text = Localize_Model.Color;
+        //    //txtProductPrice.Text = Model.UnitPrice.ToString;
+        //    //txtProductStock.Text = Model.CurrentStock.ToString;
+        //    txtProductBarcode.Text = Model.ProductCode;
+
+        //}
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -64,7 +58,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
     }
 }

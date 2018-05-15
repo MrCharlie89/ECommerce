@@ -10,7 +10,7 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
 {
     public static class BL_Language
     {
-        public static bool Save (Language Model)
+        public static bool Save(Language Model)
         {
             try
             {
@@ -18,7 +18,7 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
                 {
                     Create(Model);
                 }
-                
+
             }
             catch (Exception)
             {
@@ -46,6 +46,19 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.BL
             try
             {
                 return DAL_Language.GetAll();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static Language GetEnglishLanguages()
+        {
+            try
+            {
+                return DAL_Language.GetEnglishLanguages();
             }
             catch (Exception)
             {

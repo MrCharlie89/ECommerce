@@ -25,5 +25,12 @@ namespace Syntra.VDOAP.CProef.ECommerce.LIB.DAL
 
             return ctx.languages.Where(lang => lang.DeletedAt == null).ToList();
         }
+
+        internal static Language GetEnglishLanguages()
+        {
+            var ctx = AppDBContext.Instance();
+
+            return ctx.languages.Single(Language => Language.ISO == "eng");
+        }
     }
 }

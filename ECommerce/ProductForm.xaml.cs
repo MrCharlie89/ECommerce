@@ -27,12 +27,14 @@ namespace Syntra.VDOAP.CProef.ECommerce
             InitializeComponent();
 
             this.Model = model;
+            Model.Localize_Product = new List<Localize_Product>();
+            Model.Images = new List<ProductImages>();
 
             grdProductForm.DataContext = this;
             setTitle();
             AddLocalizedTabs();
 
-           
+
         }
 
         public ProductForm() : this(new Product()) { }
@@ -47,6 +49,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
 
         List<Language> LanguageList { get; set; }
+        Image Image_To_Drag;
 
         /// <summary>
         /// adding dynamic tabs, labels and textboxes
@@ -57,7 +60,7 @@ namespace Syntra.VDOAP.CProef.ECommerce
             TCLocalized.Items.Clear();
 
             LanguageList = BL_Language.GetAll();
-            Model.Localize_Product = new List<Localize_Product>();
+            
 
             foreach (var langs in LanguageList)
             {
@@ -76,12 +79,11 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
                 };
                 TCLocalized.Items.Add(tabLocalized);
-
-
-                ScrollViewer ScrollingTab = new ScrollViewer
-                {
-                    VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
-                };
+                
+                //ScrollViewer ScrollingTab = new ScrollViewer
+                //{
+                //    VerticalScrollBarVisibility = ScrollBarVisibility.Disabled
+                //};
 
                 WrapPanel Wrapper = new WrapPanel();
 
@@ -222,16 +224,97 @@ namespace Syntra.VDOAP.CProef.ECommerce
                 Wrapper.Children.Add(LabelStacker);
                 Wrapper.Children.Add(TextboxStacker);
 
-                ScrollingTab.Content = Wrapper;
+                //ScrollingTab.Content = Wrapper;
 
-                tabLocalized.Content = ScrollingTab;
+                //tabLocalized.Content = ScrollingTab;
+                tabLocalized.Content = Wrapper;
 
             }
         }
 
+        private int ImgCounter = 0;
+        private const int DefaultWidth = 150;
+        private const int DefaultHeight = 150;
+        private const int FirstImageWidth = 200;
+        private const int FirstImageHeight = 200;
 
+        private void AddImage(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Microsoft.Win32.OpenFileDialog fileDialog = new Microsoft.Win32.OpenFileDialog
+                {
+                    Filter = "image File (*.jpg; *.png)| *.jpg; *.png"
+                };
 
+                Nullable<bool> result = fileDialog.ShowDialog();
 
+                if (result == true)
+                {
+                    string filename = fileDialog.FileName;
+
+                    Image img = new Image
+                    {
+                        Source = new BitmapImage(new Uri(filename)),
+                        Width = ImgCounter != 0 ? DefaultWidth : FirstImageWidth,
+                        Height = ImgCounter != 0 ? DefaultHeight : FirstImageHeight,
+                        AllowDrop = true,
+                        VerticalAlignment = VerticalAlignment.Stretch
+                    };
+                    img.DragEnter += ImgDragEnter;
+                    img.MouseLeftButtonDown += ImgMouseLeftButtonDown;
+
+                    ProductImages imgItem = new ProductImages
+                    {
+                        FileLocation = filename,
+                        ImageOrder = ImgCounter
+                    };
+
+                    Model.Images.Add(imgItem);
+
+                    imgPanel.Children.Add(img);
+
+                    ImgCounter += 1;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void ImgMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Image_To_Drag = (Image)e.Source;
+            DragDrop.DoDragDrop(Image_To_Drag, Image_To_Drag, DragDropEffects.Move);
+        }
+
+        private void ImgDragEnter(object sender, DragEventArgs e)
+        {
+            Image Img = (Image)e.Source;
+            int WhereToDrop = imgPanel.Children.IndexOf(Img);
+            int StartLocation = imgPanel.Children.IndexOf(Image_To_Drag);
+
+            imgPanel.Children.Remove(Image_To_Drag);
+            imgPanel.Children.Insert(WhereToDrop, Image_To_Drag);
+
+            foreach (var item in imgPanel.Children)
+            {
+                Image image = item as Image;
+
+                image.Height = imgPanel.Children.IndexOf(image) != 0 ? DefaultHeight : FirstImageHeight;
+                image.Width = imgPanel.Children.IndexOf(image) != 0 ? DefaultWidth : FirstImageWidth;
+            }
+
+            ProductImages temporary = Model.Images.Single(x => x.ImageOrder == StartLocation);
+            ProductImages temporary2 = Model.Images.Single(x => x.ImageOrder == WhereToDrop);
+
+            temporary.ImageOrder = WhereToDrop;
+            temporary2.ImageOrder = StartLocation;
+
+            Model.Images = Model.Images.OrderBy(x => x.ImageOrder).ToList();
+        }
 
         private void setTitle()
         {
@@ -245,12 +328,12 @@ namespace Syntra.VDOAP.CProef.ECommerce
         // TODO: adding validation to the textboxes
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            BL_Product.Create(Model);
+            BL_Product.Save(Model, LanguageList.SingleOrDefault(lang => lang.ISO == "eng").Id);
             if (MessageBox.Show("Product saved", "Product saved", MessageBoxButton.OK) == MessageBoxResult.OK)
             {
                 this.Visibility = Visibility.Collapsed;
             }
-            
+
         }
 
 
@@ -326,6 +409,5 @@ namespace Syntra.VDOAP.CProef.ECommerce
                 this.Visibility = Visibility.Collapsed;
             }
         }
-
     }
 }

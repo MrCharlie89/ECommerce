@@ -1,5 +1,6 @@
 ﻿using Syntra.VDOAP.CProef.ECommerce.LIB.BL;
 using Syntra.VDOAP.CProef.ECommerce.LIB.Entities;
+using Syntra.VDOAP.CProef.ECommerce.LIB.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,11 +25,11 @@ namespace Syntra.VDOAP.CProef.ECommerce
     /// </summary>
     public partial class ProductOverview : UserControl
     {
-        private ObservableCollection<Product> datasource;
+        private ObservableCollection<ProductOverView> datasource;
 
         private void BindData()
         {
-            datasource = new ObservableCollection<Product>(BL_Product.GetAll());           
+            datasource = new ObservableCollection<ProductOverView>(BL_Product.GetAllOverView());           
             
            // datasource.CollectionChanged += DataSourceChanged;
             dgrdProducts.ItemsSource = datasource;
@@ -67,18 +68,23 @@ namespace Syntra.VDOAP.CProef.ECommerce
 
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
-            var model = ((FrameworkElement)sender).DataContext as Product;
-            ProductDetail pd = new ProductDetail(model);
+            var model = ((FrameworkElement)sender).DataContext as ProductOverView;
+            ProductDetail pd = new ProductDetail(model.ProductID);
             pd.Show();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var obj = ((FrameworkElement)sender).DataContext as Product;
+            var obj = ((FrameworkElement)sender).DataContext as ProductOverView;
             if (MessageBox.Show("Do you want to delete this product?", "Delete product", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 datasource.Remove(obj);
             }
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
         }
     }
 }
