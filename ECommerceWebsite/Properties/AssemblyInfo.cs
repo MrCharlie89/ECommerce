@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ECommerce.LIB")]
+[assembly: AssemblyTitle("ECommerceWebsite")]
 [assembly: AssemblyDescription("Gertjan Verhelst")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Verhelst NV")]
-[assembly: AssemblyProduct("ECommerce.LIB")]
+[assembly: AssemblyProduct("ECommerceWebsite")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("Gertjan")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d624d65c-03e9-49cb-946c-c22318981821")]
+[assembly: Guid("c4e7de89-e257-4fe1-b8cb-e89e773948c6")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -29,8 +29,7 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Build and Revision Numbers
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
