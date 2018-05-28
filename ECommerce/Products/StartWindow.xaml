@@ -23,12 +23,12 @@
                         </Button>
 
                         <Button x:Name="btnProductOverview" Style="{DynamicResource MaterialDesignRaisedButton}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="180" Margin="5,5,5,5" Click="btnProductOverview_Click">
-                            <Label Content="Product overview"></Label>
+                            <Label Content="product overview"></Label>
                         </Button>
                     </WrapPanel>
                     <WrapPanel Margin="5,15,5,5">
-                        <Button x:Name="btnProductCategories" Style="{DynamicResource MaterialDesignRaisedButton}"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="180" Height="180" Margin="5,5,10,5" Click="btnProductCategories_Click">
-                            <Label Content="Product Categories"/>
+                        <Button x:Name="btnProductCategories" Style="{DynamicResource MaterialDesignRaisedButton}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="180" Height="180" Margin="5,5,10,5" Click="btnProductCategories_Click">
+                            <Label Content="Add product category" Width="162"></Label>
                         </Button>
                         <Button x:Name="btnProductCategoriesOverview"  Style="{DynamicResource MaterialDesignRaisedButton}"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="180" Height="180" Margin="5,5,5,5" Click="btnProductCategoriesOverview_Click">
                             <Label Content="Category overview"></Label>
